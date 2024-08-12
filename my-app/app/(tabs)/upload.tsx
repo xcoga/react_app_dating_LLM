@@ -94,6 +94,7 @@ export default function ImagePickerExample() {
     <View style={styles.container}>
       <View style={styles.imageContainer}>
         {image && <Image source={{ uri: image }} style={styles.image} />}
+        {!image && <Image source={require('@/assets/images/bg_2.jpg')} style={styles.image} />}
       </View>
 
       {/* Row containing two buttons */}
