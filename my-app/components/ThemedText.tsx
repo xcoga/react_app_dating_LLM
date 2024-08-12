@@ -1,5 +1,5 @@
 import { Text, type TextProps, StyleSheet } from 'react-native';
-
+import { useFonts } from 'expo-font';
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 export type ThemedTextProps = TextProps & {
@@ -16,7 +16,10 @@ export function ThemedText({
   ...rest
 }: ThemedTextProps) {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
-
+  const font = useFonts({
+    'Moonbright': require('@/assets/fonts/Moonbright.ttf'),
+    'SpaceMono': require('@/assets/fonts/SpaceMono-Regular.ttf'),
+  });
   return (
     <Text
       style={[
@@ -36,6 +39,7 @@ export function ThemedText({
 const styles = StyleSheet.create({
   default: {
     fontSize: 16,
+    fontFamily: 'SpaceMono',
     lineHeight: 24,
   },
   defaultSemiBold: {
